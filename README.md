@@ -21,12 +21,12 @@ Replicats.ai just deployed on Base our AI trading agent (Replicat One)! And here
 
 
 
-## Install requirements:
+## Install Requirements
 
 
         pip install -r requirements.txt
 
-## Run
+## Run Reporting
 
 
         voila backtests.ipynb
