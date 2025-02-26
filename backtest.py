@@ -8,7 +8,7 @@ _\_^_/----- Replicats.ai -----
     Sample backtests
 
 Copyright (2025) - Replicats.ai
-@author: jorge@replicats.ai
+@author: jorge@replicats.ai (TL: @quantamentalguy)
 """
 import pandas as pd
 import numpy as np
