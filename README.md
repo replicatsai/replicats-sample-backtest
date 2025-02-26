@@ -1,6 +1,11 @@
 # Replicats.ai Sample Backtesting
 
- [https://replicats.ai/](https://replicats.ai/)
+
+![Replicats logo](https://github.com/replicatsai/replicats-sample-backtest/blob/main/etc/images/logo.png?raw=true)
+
+
+[https://replicats.ai/](https://replicats.ai/)
+
 
 No-code AIFi framework for autonomous trading AI agents. Build your agent or Copy-trade others. Powered by DAG + Foundation models. $RCAT live on Base and Sol.
 
