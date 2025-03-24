@@ -21,11 +21,13 @@ We leverage big data for superior predictive accuracy, using state-of-the-art de
 Replicats.ai just deployed on Base our AI trading agent (Replicat One)! And here is a sample backtest code! See exactly how our AI agent performs before risking real capital. Backtesting simulates trading strategies against historical data to validate performance and manage risk. Check it out! See our agent's actual performance metrics and risk profile today! 
 
 
-  😺 [[Agent One Report](https://htmlpreview.github.io/?https://github.com/replicatsai/replicats-sample-backtest/blob/main/docs/bactest_002/backtests_002.html)]
+  😺 [[Agent One Report - low vol, high sharp](https://htmlpreview.github.io/?https://github.com/replicatsai/replicats-sample-backtest/blob/main/docs/backtest_002/backtests_002.html)]
 
 
-  😺 [[Long biased-regime shifter strategy Report](https://htmlpreview.github.io/?https://github.com/replicatsai/replicats-sample-backtest/blob/main/docs/bactest_001/backtests.html)]
+  😺 [[Long biased-structural breaks strategy report](https://htmlpreview.github.io/?https://github.com/replicatsai/replicats-sample-backtest/blob/main/docs/backtest_001/backtests.html)] * 
 
+
+ <small>* run backtests_001.ipynb</small>
 
 ## Install Requirements
 
