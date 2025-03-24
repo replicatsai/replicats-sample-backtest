@@ -18,18 +18,19 @@ def drawdowns(returns: pd.Series):
     """Calculate maximum drawdown and its duration"""
     cumulative_returns =  returns.apply(np.exp).cumprod()
     rolling_max = cumulative_returns.expanding().max()
-    drawdowns = cumulative_returns / rolling_max - 1
+    drawdowns = cumulative_returns - rolling_max
+    drawdowns_perc = cumulative_returns / rolling_max - 1
     max_drawdown = drawdowns.min()
     
     # Calculate drawdown duration
-    end_idx = drawdowns.idxmin()
+    end_idx = drawdowns_perc.idxmin()
     peak_idx = rolling_max.loc[:end_idx].idxmax()
-    recovery_idx = drawdowns.loc[end_idx:].gt(0).idxmax() if any(drawdowns.loc[end_idx:] >= 0) else returns.index[-1]
+    recovery_idx = drawdowns_perc.loc[end_idx:].gt(0).idxmax() if any(drawdowns_perc.loc[end_idx:] >= 0) else returns.index[-1]
     recovery_idx = pd.to_datetime(recovery_idx)
     peak_idx = pd.to_datetime(peak_idx)
     drawdown_duration = (recovery_idx - peak_idx).days
             
-    return drawdowns, max_drawdown, drawdown_duration
+    return drawdowns, drawdowns_perc, max_drawdown, drawdown_duration
 
 
 def calculate_ratios(returns: pd.Series, 
@@ -75,7 +76,7 @@ def calculate_ratios(returns: pd.Series,
     downside_std = np.sqrt(np.mean(downside_returns**2)) * np.sqrt(periods_per_year)
     
     # Calculate max drawdown and duration
-    _, max_dd, dd_duration = drawdowns(returns)
+    _, _, max_dd, dd_duration = drawdowns(returns)
     
     # Calculate various ratios
     mean_excess_return = excess_returns.mean() * periods_per_year
@@ -363,7 +364,7 @@ def monte_carlo_backtest(returns: pd.Series, px_last: float,
     upper_percentile = 1 - lower_percentile
     
     def max_drawdowns(returns):
-        _, value, _ = drawdowns(pd.Series(returns))
+        _, _, value, _ = drawdowns(pd.Series(returns))
         return value
 
 
